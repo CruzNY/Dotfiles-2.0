@@ -25,6 +25,7 @@ There are two things you can do about this warning:
    (quote
     ("04589c18c2087cd6f12c01807eed0bdaa63983787025c209b89c779c61c3a4c4" "3860a842e0bf585df9e5785e06d600a86e8b605e5cc0b74320dfe667bcbe816c" default)))
  '(fringe-mode 6 nil (fringe))
+ '(global-display-line-numbers-mode t)
  '(linum-format (quote dynamic))
  '(package-selected-packages
    (quote
