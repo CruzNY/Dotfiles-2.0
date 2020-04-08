@@ -23,10 +23,12 @@ There are two things you can do about this warning:
  '(custom-enabled-themes (quote (grandshell)))
  '(custom-safe-themes
    (quote
-    ("3860a842e0bf585df9e5785e06d600a86e8b605e5cc0b74320dfe667bcbe816c" default)))
+    ("04589c18c2087cd6f12c01807eed0bdaa63983787025c209b89c779c61c3a4c4" "3860a842e0bf585df9e5785e06d600a86e8b605e5cc0b74320dfe667bcbe816c" default)))
+ '(fringe-mode 6 nil (fringe))
+ '(linum-format (quote dynamic))
  '(package-selected-packages
    (quote
-    (ranger highlight-parentheses smartparens dashboard centaur-tabs meghanada org-bullets company-jedi jdee jedi-core yasnippet flycheck neotree all-the-icons auto-complete markdown-mode anaconda-mode elpy flycheck-pycheckers format-all jedi vbasense ejson-mode grandshell-theme)))
+    (magit telephone-line cherry-blossom-theme emmet-mode ranger highlight-parentheses smartparens dashboard centaur-tabs meghanada org-bullets company-jedi jdee jedi-core yasnippet flycheck neotree all-the-icons auto-complete markdown-mode anaconda-mode elpy flycheck-pycheckers format-all jedi vbasense ejson-mode grandshell-theme)))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -70,6 +72,21 @@ There are two things you can do about this warning:
 ;; Dashboard Settings
 (require 'dashboard)
 (dashboard-setup-startup-hook)
+
+;; Telephone Line / Mode Line
+(require 'telephone-line)
+(telephone-line-mode 1)
+(setq telephone-line-lhs
+      '((evil   . (telephone-line-evil-tag-segment))
+        (accent . (telephone-line-vc-segment
+                   telephone-line-erc-modified-channels-segment
+                   telephone-line-process-segment))
+        (nil    . (telephone-line-minor-mode-segment
+                   telephone-line-buffer-segment))))
+(setq telephone-line-rhs
+      '((nil    . (telephone-line-misc-info-segment))
+        (accent . (telephone-line-major-mode-segment))
+        (evil   . (telephone-line-airline-position-segment))))
 
 ;; Hideshow Settings 
 (load-library "hideshow")
